@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+  tomcat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /application
+#    command: tail -f /dev/null
+    ports:
+      - '8085:8085'
+    volumes:
+      - ./:/application
+      - maven-repo:/root/.m2
+volumes:
+  maven-repo:
