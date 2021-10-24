@@ -1,5 +1,5 @@
 # jenkins
-> Deploying application on Tomcat with Jenkins
+> Deploying application in Tomcat container with Jenkins
 
 ## Usage
 ```sh
