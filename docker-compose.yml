@@ -11,19 +11,19 @@ services:
 #    volumes:
 #      - ./:/application
 #      - maven-repo:/root/.m2
-  maven:
-    image: maven
-    working_dir: /usr/src/mymaven
-    command: mvn tomcat7:redeploy
-#    command: mvn tomcat7:redeploy && tail -f /dev/null
-    links:
-      - tomcat
-#    ports:
-#      - '8080:8080'
-    volumes:
-      - ./:/usr/src/mymaven
-      - maven-repo:/root/.m2
-      - ./tomcat/config/maven/settings.xml:/usr/share/maven/conf/settings.xml
+#  maven:
+#    image: maven
+#    working_dir: /usr/src/mymaven
+#    command: mvn tomcat7:redeploy
+##    command: mvn tomcat7:redeploy && tail -f /dev/null
+#    links:
+#      - tomcat
+##    ports:
+##      - '8080:8080'
+#    volumes:
+#      - ./:/usr/src/mymaven
+#      - maven-repo:/root/.m2
+#      - ./tomcat/config/maven/settings.xml:/usr/share/maven/conf/settings.xml
   jenkins:
 #    image: jenkins/jenkins
     build:
