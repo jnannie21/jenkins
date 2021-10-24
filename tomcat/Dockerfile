@@ -3,10 +3,10 @@ FROM centos
 RUN yum update -y \
   && yum install -y java-1.8.0-openjdk \
      java-1.8.0-openjdk-devel \
-     maven \
-     git \
+#     install -y maven \
+#     git \
      wget \
-     unzip \
+#     unzip \
   && yum clean all
 
 #   create tomcat group and tomcat user
@@ -19,9 +19,9 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.72/bin/apache-tomcat-8.5.
     && tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 
 #   copy configurations
-COPY config/tomcat/*.xml /opt/tomcat/conf/
+COPY tomcat/config/tomcat/*.xml /opt/tomcat/conf/
 #COPY config/tomcat/server.xml config/tomcat/web.xml config/tomcat/context.xml config/tomcat/tomcat-users.xml /opt/tomcat/conf/
-COPY config/tomcat/manager/context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
+COPY tomcat/config/tomcat/manager/context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
 
 RUN cd /opt/tomcat \
 #    give the tomcat group ownership over /opt/tomcat
