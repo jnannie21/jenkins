@@ -15,10 +15,6 @@ RUN wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.72/bin/apache-tomcat-8.5.
     && mkdir /opt/tomcat \
     && tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 
-#   copy configurations
-#COPY tomcat/config/tomcat/*.xml /opt/tomcat/conf/
-#COPY tomcat/config/tomcat/manager/context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
-
 RUN cd /opt/tomcat \
 #    give the tomcat group ownership over /opt/tomcat
     && chgrp -R tomcat /opt/tomcat \
