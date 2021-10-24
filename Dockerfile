@@ -14,12 +14,14 @@ RUN groupadd tomcat \
     && useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat
 
 #   Install Tomcat
-RUN wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.0.12/bin/apache-tomcat-10.0.12.tar.gz \
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.72/bin/apache-tomcat-8.5.72.tar.gz \
     && mkdir /opt/tomcat \
-    && tar xvf apache-tomcat-10*tar.gz -C /opt/tomcat --strip-components=1
+    && tar xvf apache-tomcat-8*tar.gz -C /opt/tomcat --strip-components=1
 
 #   copy configurations
-COPY server.xml web.xml context.xml /opt/tomcat/conf/
+COPY config/tomcat/*.xml /opt/tomcat/conf/
+#COPY config/tomcat/server.xml config/tomcat/web.xml config/tomcat/context.xml config/tomcat/tomcat-users.xml /opt/tomcat/conf/
+COPY config/tomcat/manager/context.xml /opt/tomcat/webapps/manager/META-INF/context.xml
 
 RUN cd /opt/tomcat \
 #    give the tomcat group ownership over /opt/tomcat

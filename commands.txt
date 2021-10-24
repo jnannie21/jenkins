@@ -1,0 +1,3 @@
+mvn tomcat7:deploy
+mvn tomcat7:redeploy
+mvn tomcat7:undeploy

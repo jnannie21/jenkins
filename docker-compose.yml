@@ -8,8 +8,21 @@ services:
 #    command: tail -f /dev/null
     ports:
       - '8085:8085'
+#    volumes:
+#      - ./:/application
+#      - maven-repo:/root/.m2
+  maven:
+    image: maven
+    working_dir: /usr/src/mymaven
+    command: mvn tomcat7:redeploy && tail -f /dev/null
+#    command: mvn tomcat7:deploy
+    links:
+      - tomcat
+#    ports:
+#      - '8080:8080'
     volumes:
-      - ./:/application
+      - ./:/usr/src/mymaven
       - maven-repo:/root/.m2
+      - ./config/maven/settings.xml:/usr/share/maven/conf/settings.xml
 volumes:
   maven-repo:
