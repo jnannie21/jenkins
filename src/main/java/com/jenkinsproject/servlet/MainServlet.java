@@ -14,15 +14,7 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         PrintWriter out = resp.getWriter();
-        out.print("<h1>Hello Servlet</h1>");
-        out.print("<h1>HI to you too</h1>");
+        out.print("<h1>Hello Servlet!!!11</h1>");
     }
-
-//    @Override
-//    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-//            throws ServletException, IOException {
-//
-//        super.doPost(req, resp);
-//    }
 
 }
