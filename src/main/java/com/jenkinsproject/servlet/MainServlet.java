@@ -14,7 +14,7 @@ public class MainServlet extends HttpServlet {
             throws ServletException, IOException {
 
         PrintWriter out = resp.getWriter();
-        out.print("<h2>Hello, this is my first servlet!!!11</h2>");
+        out.print("<h1>Hello, this is my first servlet!!!</h1>");
     }
 
 }
