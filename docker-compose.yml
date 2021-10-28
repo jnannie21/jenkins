@@ -9,7 +9,6 @@ services:
       - ./:/tomcat
     working_dir: /tomcat
     command: /opt/tomcat/bin/catalina.sh run
-
   jenkins:
     build:
       context: .
@@ -20,6 +19,5 @@ services:
       - '8080:8080'
     volumes:
       - maven-repo:/root/.m2
-
 volumes:
   maven-repo:
