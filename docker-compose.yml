@@ -5,10 +5,6 @@ services:
       dockerfile: tomcat/Dockerfile
     ports:
       - '8085:8085'
-    volumes:
-      - ./:/tomcat
-    working_dir: /tomcat
-    command: /opt/tomcat/bin/catalina.sh run
   jenkins:
     build:
       context: .
